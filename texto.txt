@@ -1,0 +1,10 @@
+coding: utf-8
+
+Eu estou estudando na Geek
+University e estou aprendendo muito no curso
+de programação em python essencial.
+
+
+
+
+

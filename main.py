@@ -1,0 +1,4 @@
+nome = 'geek'
+print(nome)
+    
+
