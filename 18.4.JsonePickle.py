@@ -150,7 +150,7 @@ class Gato:
 Felix = Gato('Felix', 'RND')
 
 with open('felix.json', 'w') as arquivo:
-    ret = jsonpickle.encode(felix)
+    ret = jsonpickle.encode(Felix)
     arquivo.write(ret)
 
 # NESSE CASO NÃO É UM ARQUIVO CSV!
