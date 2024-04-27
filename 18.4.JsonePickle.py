@@ -122,13 +122,9 @@ with open('felix.json', 'w') as arquivo:
 _____________________________________________________
 
 
-
-
-"""
-
 import jsonpickle
 
-# ABRINDO O ARQUIVO PARA ESCRITA:
+# LENDO O ARQUIVO :
 class Gato:
 
     def __init__(self, nome, raca):
@@ -144,15 +140,39 @@ class Gato:
         return self.__raca
 
 
-# Instanciando um objeto
-# Abrindo o arquivo para escrita:
+with open('felix.json', 'r', encoding='utf8') as arquivo:
+   conteudo = arquivo.read()
+   ret = jsonpickle.decode(conteudo)
+   print(ret)
+   print(type(ret))
+   print(ret.nome)
+   print(ret.raca)
 
-Felix = Gato('Felix', 'RND')
 
-with open('felix.json', 'w') as arquivo:
-    ret = jsonpickle.encode(Felix)
-    arquivo.write(ret)
 
-# NESSE CASO NÃO É UM ARQUIVO CSV!
-# A função encode modela nosso objeto para o formato JSONPICKLE
+"""
+import jsonpickle
 
+# LENDO O ARQUIVO :
+class Gato:
+
+    def __init__(self, nome, raca):
+        self.__nome = nome
+        self.__raca = raca
+
+    @property
+    def nome(self):
+        return self.__nome
+
+    @property
+    def raca(self):
+        return self.__raca
+
+
+with open('felix.json', 'r', encoding='utf8') as arquivo:
+   conteudo = arquivo.read()
+   ret = jsonpickle.decode(conteudo)
+   print(ret)
+   print(type(ret))
+   print(ret.nome)
+   print(ret.raca)
