@@ -88,9 +88,7 @@ print(hoje_formatado)  # 29/04/2024
 
 
 _____________________________________________________
-
-
-"""
+# Formatando datas
 
 import datetime
 
@@ -123,7 +121,130 @@ def formata_data(data):
 
 
 hoje = datetime.datetime.today()
-print(hoje)  # 2024-04-29 18:17:22.120337
-hoje_formatado = hoje.strftime('%d de %B de %Y')
-print(hoje_formatado)  # 29/04/2024
+print(formata_data(hoje))  # 30 de Abril de 2024
+
+#print(hoje)  # 2024-04-29 18:17:22.120337
+#hoje_formatado = hoje.strftime('%d de %B de %Y')
+#print(hoje_formatado)  # 29/04/2024
+
+__________________________________________________________________
+
+# ABAIXO NÃO FUNCIONA, TEXTBLOB NÃO TRADUZ MAIS!
+# importando textblob pip install textblob (terminal)
+import datetime
+from textblob import TextBlob
+
+
+def formata_data(data):
+    mes_ingles = data.strftime('%B')
+    mes_portugues = TextBlob(data.strftime(mes_ingles)).translate(from_lang='en', to='pt-br')
+    return f"{data.day} de {mes_portugues} de {data.year}"
+
+
+# Esse método utiliza internet então não funciona offline!
+
+hoje = datetime.datetime.today()
+print(formata_data(hoje))
+
+_____________________________________________________
+
+# Abaixo um exemplo que também não funciona com o google translator
+import datetime
+from googletrans import Translator
+
+
+def formata_data(data):
+    translator = Translator()
+    # Extrai o nome do mês em inglês
+    mes_ingles = data.strftime('%B')
+    # Traduz para português
+    mes_portugues = translator.translate(mes_ingles, src='en', dest='pt').text
+    return f"{data.day} de {mes_portugues} de {data.year}"
+
+
+hoje = datetime.datetime.today()
+print(formata_data(hoje))
+
+
+
+_______________________________________________________________
+
+import datetime
+
+nascimento = datetime.datetime.strptime('10/04/2008', '%d/%m/%Y')
+print(nascimento)  # 2008-04-10 00:00:00
+nascimento = input('Qual sua data de nascimento? (dd/mm/aaaa) : ')
+nascimento = datetime.datetime.strptime(nascimento, '%d/%m/%Y')
+print(nascimento)
+# 1992-08-20 00:00:00
+
+________________________________________________________________
+
+#Somente a hora
+
+
+import datetime
+
+
+almoco = datetime.time(12, 30, 0)
+print(almoco)
+# 12:30:00
+
+______________________________________________________________
+
+# Marcando tempo de execução do código com timeit
+
+import timeit
+
+# Loop for
+tempo = timeit.timeit('"-".join(str(n) for n in range(100))', number=10000)
+# "-" - separador ; .join (juntar) ; str(n) - n vira string para o sequencial até 100
+print(tempo)
+
+
+#List Comprehensions
+tempo = timeit.timeit('"-".join([str(n) for n in range(100)])', number=10000)
+print(tempo)
+# Usa []
+
+# Map
+tempo = timeit.timeit('"-".join(map(str, range(100)))', number=10000)
+# map recebe função, lista ; nesse caso transforma a sequencia em uma string
+print(tempo)
+
+# 0.2513978999995743
+# 0.20482709999851068
+# 0.1618997000005038
+
+# Notamos que o map() performa melhor
+
+
+______________________________________________________
+
+
+
+"""
+
+import timeit, functools
+
+
+def teste(n):
+    soma = 0
+    for num in range(n * 200):
+        soma = soma + num ** num + 4
+    return soma
+
+
+# print(teste(5))
+print(timeit.timeit(functools.partial(teste, 2), number=10000))
+# funtools partial (função, parametro), quantidade de vezes
+# 10.377096099997289 (tempo de execução)
+
+
+
+
+
+
+
+
 
