@@ -35,7 +35,6 @@ class AtividadesTestes(unittest.TestCase):
         )
 
 
-
 if __name__ == '__main__':  # Se o nome do arquivo for igual main (execução direta)
     unittest.main()  # Execução de teste
 
