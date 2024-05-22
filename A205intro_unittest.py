@@ -34,6 +34,20 @@ assertIsInstance(a, b)      isinstance(a, b)
 assertNotIsInstance(a, b)   not isinstance(a, b)
 
 
+
+Para executar os testes com Unittest
+
+python nome_do_modulo.py
+
+# Para executar os testes com unittest no modo verbose (com detalhes, informações do que está acontecendo)
+python nome_do_modulo -v
+
+
+
+# Docstrings nos testes
+Podemos acrescentar (e é recomendado) docstrings nos nossos testes.
+
+
 """
 
 # Utilizando as abordagens TDD
