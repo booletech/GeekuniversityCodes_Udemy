@@ -1,9 +1,9 @@
 class Robo:
 
-    def __init__(self, nome, bateria=100, habilidades=[]):
+    def __init__(self, nome, bateria=100, habilidades=None):
         self.__nome = nome
         self.__bateria = bateria
-        self.__habilidades = habilidades
+        self.__habilidades = habilidades if habilidades is not None else []
 
     @property
     def nome(self):
@@ -22,7 +22,7 @@ class Robo:
 
     def dizer_nome(self):
         if self.__bateria > 0:
-            self.bateria -= 1
+            self.__bateria -= 1
             return f'BEEP BOOP BEEP BOOP, Eu sou {self.__nome.upper()}'
         return 'Bateria Fraca. POr favor, recarregue e tente novamente!'
 
