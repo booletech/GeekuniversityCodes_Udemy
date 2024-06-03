@@ -30,7 +30,7 @@ class Modulotest(unittest.TestCase):
 
 
         # setUp() vai rodar antes do teste
-        # tearDown() vai rodar após o teste
+        # tearDown() vai rodar após o teste/
 
     def tearDown(self):
         # Config do tearDown()
