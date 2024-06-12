@@ -16,7 +16,9 @@ bancos de dados.
 
 import unittest
 
+
 class Modulotest(unittest.TestCase):
+
     def setUp(self):
         # Configurações do setup()
         pass
@@ -27,8 +29,7 @@ class Modulotest(unittest.TestCase):
         pass
 
     def test_segundo(self):
-
-
+        pass
         # setUp() vai rodar antes do teste
         # tearDown() vai rodar após o teste/
 
@@ -37,4 +38,3 @@ class Modulotest(unittest.TestCase):
         pass
 
 # Continue no arquivo robo.py (Esse arquivo trabalha em conjunto)
-
